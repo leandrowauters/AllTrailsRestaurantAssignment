@@ -8,13 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D50D323726D9A66E004CD1C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D323626D9A66E004CD1C7 /* AppDelegate.swift */; };
-		D50D323926D9A66E004CD1C7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D323826D9A66E004CD1C7 /* SceneDelegate.swift */; };
-		D50D323B26D9A66E004CD1C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D323A26D9A66E004CD1C7 /* ViewController.swift */; };
 		D50D323E26D9A66E004CD1C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50D323C26D9A66E004CD1C7 /* Main.storyboard */; };
 		D50D324026D9A66F004CD1C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D50D323F26D9A66F004CD1C7 /* Assets.xcassets */; };
 		D50D324326D9A66F004CD1C7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D50D324126D9A66F004CD1C7 /* LaunchScreen.storyboard */; };
 		D50D324E26D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D324D26D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentTests.swift */; };
 		D50D325926D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50D325826D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests.swift */; };
+		D51AE07226D9A81300A58E36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51AE07126D9A81300A58E36 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +36,6 @@
 /* Begin PBXFileReference section */
 		D50D323326D9A66E004CD1C7 /* AllTrailsRestaurantAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllTrailsRestaurantAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50D323626D9A66E004CD1C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D50D323826D9A66E004CD1C7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D50D323A26D9A66E004CD1C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D50D323D26D9A66E004CD1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D50D323F26D9A66F004CD1C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D50D324226D9A66F004CD1C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +46,7 @@
 		D50D325426D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllTrailsRestaurantAssignmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D50D325826D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTrailsRestaurantAssignmentUITests.swift; sourceTree = "<group>"; };
 		D50D325A26D9A66F004CD1C7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D51AE07126D9A81300A58E36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +97,8 @@
 		D50D323526D9A66E004CD1C7 /* AllTrailsRestaurantAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				D50D323626D9A66E004CD1C7 /* AppDelegate.swift */,
-				D50D323826D9A66E004CD1C7 /* SceneDelegate.swift */,
-				D50D323A26D9A66E004CD1C7 /* ViewController.swift */,
-				D50D323C26D9A66E004CD1C7 /* Main.storyboard */,
-				D50D323F26D9A66F004CD1C7 /* Assets.xcassets */,
-				D50D324126D9A66F004CD1C7 /* LaunchScreen.storyboard */,
-				D50D324426D9A66F004CD1C7 /* Info.plist */,
+				D50EDD5026D9A871007ACAC9 /* UI Files */,
+				D51AE07326D9A84B00A58E36 /* Supporting Files */,
 			);
 			path = AllTrailsRestaurantAssignment;
 			sourceTree = "<group>";
@@ -126,6 +119,26 @@
 				D50D325A26D9A66F004CD1C7 /* Info.plist */,
 			);
 			path = AllTrailsRestaurantAssignmentUITests;
+			sourceTree = "<group>";
+		};
+		D50EDD5026D9A871007ACAC9 /* UI Files */ = {
+			isa = PBXGroup;
+			children = (
+				D50D323C26D9A66E004CD1C7 /* Main.storyboard */,
+				D51AE07126D9A81300A58E36 /* MainViewController.swift */,
+			);
+			path = "UI Files";
+			sourceTree = "<group>";
+		};
+		D51AE07326D9A84B00A58E36 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D50D323F26D9A66F004CD1C7 /* Assets.xcassets */,
+				D50D323626D9A66E004CD1C7 /* AppDelegate.swift */,
+				D50D324126D9A66F004CD1C7 /* LaunchScreen.storyboard */,
+				D50D324426D9A66F004CD1C7 /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +271,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D50D323B26D9A66E004CD1C7 /* ViewController.swift in Sources */,
 				D50D323726D9A66E004CD1C7 /* AppDelegate.swift in Sources */,
-				D50D323926D9A66E004CD1C7 /* SceneDelegate.swift in Sources */,
+				D51AE07226D9A81300A58E36 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,6 +451,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQ5CF8LT37;
 				INFOPLIST_FILE = AllTrailsRestaurantAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +471,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DQ5CF8LT37;
 				INFOPLIST_FILE = AllTrailsRestaurantAssignment/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
