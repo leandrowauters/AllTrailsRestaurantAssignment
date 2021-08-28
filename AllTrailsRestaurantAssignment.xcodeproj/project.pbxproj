@@ -17,6 +17,8 @@
 		D51AE07226D9A81300A58E36 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51AE07126D9A81300A58E36 /* MainViewController.swift */; };
 		D5D9BA4726D9BA07006E9C2E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4626D9BA07006E9C2E /* NetworkClient.swift */; };
 		D5D9BA4C26D9C2DA006E9C2E /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */; };
+		D5D9BA5026D9CAB1006E9C2E /* Extension+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */; };
+		D5D9BA5226D9CC85006E9C2E /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		D51AE07126D9A81300A58E36 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		D5D9BA4626D9BA07006E9C2E /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
+		D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocation.swift"; sourceTree = "<group>"; };
+		D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		D50D322A26D9A66E004CD1C7 = {
 			isa = PBXGroup;
 			children = (
+				D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */,
 				D50D323526D9A66E004CD1C7 /* AllTrailsRestaurantAssignment */,
 				D50D324C26D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentTests */,
 				D50D325726D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests */,
@@ -162,6 +167,7 @@
 			children = (
 				D5D9BA4626D9BA07006E9C2E /* NetworkClient.swift */,
 				D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */,
+				D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -296,7 +302,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D5D9BA5226D9CC85006E9C2E /* NetworkQueries.swift in Sources */,
 				D5D9BA4C26D9C2DA006E9C2E /* NetworkKeys.swift in Sources */,
+				D5D9BA5026D9CAB1006E9C2E /* Extension+CLLocation.swift in Sources */,
 				D50D323726D9A66E004CD1C7 /* AppDelegate.swift in Sources */,
 				D51AE07226D9A81300A58E36 /* MainViewController.swift in Sources */,
 				D50EDD5226D9A8C1007ACAC9 /* Places.swift in Sources */,

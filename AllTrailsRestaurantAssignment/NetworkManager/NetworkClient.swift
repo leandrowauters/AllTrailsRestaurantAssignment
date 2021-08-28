@@ -14,18 +14,96 @@ enum NetworkError: Error {
     case jsonDecodingError(Error)
 }
 
-class NetworkClient {
+struct NetworkClient {
     
-   
-    public func fetchPlacesData(completion: @escaping(Result<[ResultWrapper], NetworkError>) -> Void) {
+    
+    static let baseURL = "https://maps.googleapis.com/maps/api/place/"
+    static let output = "json"
+    
+    struct ConstantParameters {
+       
+        static func urlQueryItems() -> [URLQueryItem] {
+            let radius = "1500"
+            let type = "restaurant"
+            let keyQuery = URLQueryItem(name: "key", value: NetworkKeys.googleAPIKey)
+            let radiusQuery = URLQueryItem(name: "radius", value: radius)
+            let typeQuery = URLQueryItem(name: "type", value: type)
+            return [keyQuery,radiusQuery,typeQuery]
+        }
+    }
+    
+    enum SearchType {
+        case Nearby
+        case Text
         
-        let endpointURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json"
+        func baseURL() -> String {
+            let baseURL = NetworkClient.baseURL
+            let output = NetworkClient.output
+            var searchType = String()
+            switch self {
+            case .Nearby:
+                searchType = "nearbysearch/"
+            case .Text:
+                searchType = "textsearch/"
+            }
+            return baseURL + searchType + output
+        }
         
-        guard let url = URL(string: endpointURL) else {
+    }
+    
+
+    
+    static func endpoint(searchType: SearchType, location: String, textSearch: String?) -> URL? {
+        
+        let baseURL = searchType.baseURL()
+        
+       var urlComponents = URLComponents(string: baseURL)
+        
+        // MARK: PARAMETERS
+        
+        // Constant parameters:
+        var parameters = ConstantParameters.urlQueryItems()
+        let locationQuery = URLQueryItem(name: "location", value: location)
+        
+        
+        parameters.append(locationQuery)
+        
+        
+        // Case based parameters:
+        
+        switch searchType {
+        case .Nearby:
+            urlComponents?.queryItems = parameters
+        case .Text:
+            guard let textSearch = textSearch else {
+                return nil
+            }
+            let textQuery = URLQueryItem(name: "query", value: textSearch)
+            parameters.append(textQuery)
+            urlComponents?.queryItems = parameters
+        }
+        
+        return urlComponents?.url
+    }
+    
+
+    
+    static func fetchPlacesData(with location: String, seachType: SearchType, textSearch: String?, completion: @escaping(Result<[ResultWrapper], NetworkError>) -> Void) {
+        
+        
+//        var components = URLComponents()
+//        components.queryItems  = [
+//            URLQueryItem(name: "key", value: NetworkKeys.googleAPIKey),
+//            URLQueryItem(name: "location", value: coordinatesQuery),
+//            URLQueryItem(name: "radius", value:
+//                            EndpointComponents.QueryValue.radius),
+//            URLQueryItem(name: "type", value: EndpointComponents.QueryValue.type)
+//        ]
+        
+        guard let url = NetworkClient.endpoint(searchType: seachType, location: location, textSearch: textSearch) else {
             completion(.failure(.badURL))
             return
         }
-        
         let request = URLRequest(url: url)
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
