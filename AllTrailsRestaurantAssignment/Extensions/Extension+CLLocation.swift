@@ -14,4 +14,5 @@ extension CLLocationCoordinate2D {
         let coordinates = "\(latitude),\(longitude)"
         return coordinates
     }
+    
 }

@@ -23,10 +23,10 @@ struct NetworkClient {
     struct ConstantParameters {
        
         static func urlQueryItems() -> [URLQueryItem] {
-            let radius = "1500"
+            let radius = Constants.regionRadius
             let type = "restaurant"
             let keyQuery = URLQueryItem(name: "key", value: NetworkKeys.googleAPIKey)
-            let radiusQuery = URLQueryItem(name: "radius", value: radius)
+            let radiusQuery = URLQueryItem(name: "radius", value: radius.string)
             let typeQuery = URLQueryItem(name: "type", value: type)
             return [keyQuery,radiusQuery,typeQuery]
         }

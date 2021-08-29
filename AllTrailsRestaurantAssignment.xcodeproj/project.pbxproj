@@ -19,6 +19,14 @@
 		D5D9BA4C26D9C2DA006E9C2E /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */; };
 		D5D9BA5026D9CAB1006E9C2E /* Extension+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */; };
 		D5D9BA5226D9CC85006E9C2E /* NetworkQueries.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */; };
+		D5E7F4C426DB3DA9000DDEAB /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4C326DB3DA9000DDEAB /* ListTableView.swift */; };
+		D5E7F4C826DB3EA7000DDEAB /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4C626DB3EA7000DDEAB /* ListTableViewCell.swift */; };
+		D5E7F4C926DB3EA7000DDEAB /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D5E7F4C726DB3EA7000DDEAB /* ListTableViewCell.xib */; };
+		D5E7F4CB26DB4DEF000DDEAB /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4CA26DB4DEF000DDEAB /* MapView.swift */; };
+		D5E7F4CE26DB50E7000DDEAB /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4CD26DB50E7000DDEAB /* Extension+UIViewController.swift */; };
+		D5E7F4D026DB5538000DDEAB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4CF26DB5538000DDEAB /* Constants.swift */; };
+		D5E7F4D226DB55F4000DDEAB /* Extension+Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4D126DB55F4000DDEAB /* Extension+Other.swift */; };
+		D5E7F4D426DB58EA000DDEAB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5E7F4D326DB58EA000DDEAB /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +65,14 @@
 		D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
 		D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocation.swift"; sourceTree = "<group>"; };
 		D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkQueries.swift; sourceTree = "<group>"; };
+		D5E7F4C326DB3DA9000DDEAB /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
+		D5E7F4C626DB3EA7000DDEAB /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
+		D5E7F4C726DB3EA7000DDEAB /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
+		D5E7F4CA26DB4DEF000DDEAB /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D5E7F4CD26DB50E7000DDEAB /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		D5E7F4CF26DB5538000DDEAB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D5E7F4D126DB55F4000DDEAB /* Extension+Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+Other.swift"; sourceTree = "<group>"; };
+		D5E7F4D326DB58EA000DDEAB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +123,7 @@
 		D50D323526D9A66E004CD1C7 /* AllTrailsRestaurantAssignment */ = {
 			isa = PBXGroup;
 			children = (
-				D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */,
+				D5E7F4CC26DB50BF000DDEAB /* Extensions */,
 				D50EDD5026D9A871007ACAC9 /* UI Files */,
 				D51AE07326D9A84B00A58E36 /* Supporting Files */,
 				D50EDD5326D9A8C6007ACAC9 /* Models */,
@@ -139,6 +155,8 @@
 			children = (
 				D50D323C26D9A66E004CD1C7 /* Main.storyboard */,
 				D51AE07126D9A81300A58E36 /* MainViewController.swift */,
+				D5E7F4C526DB3E71000DDEAB /* View */,
+				D5E7F4BE26DB365D000DDEAB /* Cell */,
 			);
 			path = "UI Files";
 			sourceTree = "<group>";
@@ -147,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				D50EDD5126D9A8C1007ACAC9 /* Places.swift */,
+				D5E7F4D326DB58EA000DDEAB /* Restaurant.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +177,7 @@
 				D50D323626D9A66E004CD1C7 /* AppDelegate.swift */,
 				D50D324126D9A66F004CD1C7 /* LaunchScreen.storyboard */,
 				D50D324426D9A66F004CD1C7 /* Info.plist */,
+				D5E7F4CF26DB5538000DDEAB /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -170,6 +190,34 @@
 				D5D9BA5126D9CC85006E9C2E /* NetworkQueries.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		D5E7F4BE26DB365D000DDEAB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D5E7F4C626DB3EA7000DDEAB /* ListTableViewCell.swift */,
+				D5E7F4C726DB3EA7000DDEAB /* ListTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		D5E7F4C526DB3E71000DDEAB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5E7F4C326DB3DA9000DDEAB /* ListTableView.swift */,
+				D5E7F4CA26DB4DEF000DDEAB /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D5E7F4CC26DB50BF000DDEAB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */,
+				D5E7F4CD26DB50E7000DDEAB /* Extension+UIViewController.swift */,
+				D5E7F4D126DB55F4000DDEAB /* Extension+Other.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +324,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D50D324326D9A66F004CD1C7 /* LaunchScreen.storyboard in Resources */,
+				D5E7F4C926DB3EA7000DDEAB /* ListTableViewCell.xib in Resources */,
 				D50D324026D9A66F004CD1C7 /* Assets.xcassets in Resources */,
 				D50D323E26D9A66E004CD1C7 /* Main.storyboard in Resources */,
 			);
@@ -305,10 +354,17 @@
 				D5D9BA5226D9CC85006E9C2E /* NetworkQueries.swift in Sources */,
 				D5D9BA4C26D9C2DA006E9C2E /* NetworkKeys.swift in Sources */,
 				D5D9BA5026D9CAB1006E9C2E /* Extension+CLLocation.swift in Sources */,
+				D5E7F4CB26DB4DEF000DDEAB /* MapView.swift in Sources */,
 				D50D323726D9A66E004CD1C7 /* AppDelegate.swift in Sources */,
 				D51AE07226D9A81300A58E36 /* MainViewController.swift in Sources */,
+				D5E7F4C826DB3EA7000DDEAB /* ListTableViewCell.swift in Sources */,
+				D5E7F4C426DB3DA9000DDEAB /* ListTableView.swift in Sources */,
+				D5E7F4CE26DB50E7000DDEAB /* Extension+UIViewController.swift in Sources */,
 				D50EDD5226D9A8C1007ACAC9 /* Places.swift in Sources */,
+				D5E7F4D426DB58EA000DDEAB /* Restaurant.swift in Sources */,
+				D5E7F4D226DB55F4000DDEAB /* Extension+Other.swift in Sources */,
 				D5D9BA4726D9BA07006E9C2E /* NetworkClient.swift in Sources */,
+				D5E7F4D026DB5538000DDEAB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
