@@ -87,7 +87,6 @@
 		D50D322A26D9A66E004CD1C7 = {
 			isa = PBXGroup;
 			children = (
-				D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */,
 				D50D323526D9A66E004CD1C7 /* AllTrailsRestaurantAssignment */,
 				D50D324C26D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentTests */,
 				D50D325726D9A66F004CD1C7 /* AllTrailsRestaurantAssignmentUITests */,
@@ -108,6 +107,7 @@
 		D50D323526D9A66E004CD1C7 /* AllTrailsRestaurantAssignment */ = {
 			isa = PBXGroup;
 			children = (
+				D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */,
 				D50EDD5026D9A871007ACAC9 /* UI Files */,
 				D51AE07326D9A84B00A58E36 /* Supporting Files */,
 				D50EDD5326D9A8C6007ACAC9 /* Models */,

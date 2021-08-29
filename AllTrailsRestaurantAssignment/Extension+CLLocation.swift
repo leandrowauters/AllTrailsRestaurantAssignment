@@ -9,6 +9,7 @@ import Foundation
 import CoreLocation
 
 extension CLLocationCoordinate2D {
+    
     func urlQueryItemString() -> String {
         let coordinates = "\(latitude),\(longitude)"
         return coordinates

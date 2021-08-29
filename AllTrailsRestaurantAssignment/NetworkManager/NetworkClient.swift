@@ -88,7 +88,7 @@ struct NetworkClient {
     
 
     
-    static func fetchPlacesData(with location: String, seachType: SearchType, textSearch: String?, completion: @escaping(Result<[ResultWrapper], NetworkError>) -> Void) {
+    static func fetchPlacesData(location: String, seachType: SearchType, textSearch: String?, completion: @escaping(Result<[ResultWrapper], NetworkError>) -> Void) {
         
         
 //        var components = URLComponents()
@@ -117,6 +117,7 @@ struct NetworkClient {
                     completion(.success(result.results))
                 } catch {
                     completion(.failure(.jsonDecodingError(error)))
+                    
                 }
                 
             }

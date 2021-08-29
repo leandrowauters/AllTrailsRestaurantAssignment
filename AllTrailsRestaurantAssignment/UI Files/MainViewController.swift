@@ -13,7 +13,15 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Uncomment to test endpoints
 //        testEndpoint()
-        // Do any additional setup after loading the view.
+        NetworkClient.fetchPlacesData(location: "40.7484,-73.9857", seachType: .Nearby, textSearch: nil) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                //TODO: show alert
+            case .success(let places):
+                print("RESULTS COUNT: \(places.count)")
+            }
+        }
     }
     
     func testEndpoint() {
