@@ -72,4 +72,25 @@ class Restaurant: NSObject, MKAnnotation {
         //TODO: ADD USERDEFULT FUNC
         return false
     }
+    
+    static func getRestuarants(places: [ResultWrapper]) -> [Restaurant] {
+        var restaurants = [Restaurant]()
+        
+        for place in places {
+            let name = place.name ?? Constants.notAvailableText
+            let location = place.geometry?.location
+            let rating = Int(place.rating ?? 0.0)
+            let priceLevel = place.priceLevel
+            let userRatingTotal = place.userRatingsTotal ?? 0
+            let detailText = place.vicinity ?? Constants.notAvailableText
+            let placeId = place.placeID
+            
+            let restaurant = Restaurant(name: name, coordinate: CLLocationCoordinate2D(latitude: location?.lat ?? Constants.defultCoordinate.latitude, longitude: location?.lng ?? Constants.defultCoordinate.longitude), rating: rating, priceLevel: priceLevel, userRatingTotal: userRatingTotal, detailText: detailText, placeId: placeId)
+            
+            restaurants.append(restaurant)
+        }
+        
+        return restaurants
+    }
+    
 }

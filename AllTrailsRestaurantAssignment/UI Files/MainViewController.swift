@@ -22,12 +22,12 @@ class MainViewController: UIViewController {
     private var mapView = MapView()
     
     //MARK: DATA:
-    var places = [ResultWrapper]() {
+    var restaurants = [Restaurant]() {
         didSet {
-            print("Did load data. Count: \(places.count)")
+            print("Did load data. Count: \(restaurants.count)")
             DispatchQueue.main.async {
                 self.listTableView.reloadData()
-                self.addAnnotations(places: self.places)
+                self.addAnnotations(restaurants: self.restaurants)
             }
         }
     }
@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         }
     }
     //Default location: NYC
-    let defultCoordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,19 +76,11 @@ class MainViewController: UIViewController {
     }
     
     
-    private func addAnnotations(places: [ResultWrapper]) {
+    
+    private func addAnnotations(restaurants: [Restaurant]) {
         mapView.removeAnnotations(self.annotations)
-        
-        
-        for place in places {
-            let name = place.name ?? Constants.notAvailableText
-            let location = place.geometry?.location
-            let rating = Int(place.rating ?? 0.0)
-            let priceLevel = place.priceLevel
-            let userRatingTotal = place.userRatingsTotal ?? 0
-            let detailText = place.vicinity ?? Constants.notAvailableText
-            let placeId = place.placeID
-            let restaurant = Restaurant(name: name, coordinate: CLLocationCoordinate2D(latitude: location?.lat ?? defultCoordinate.latitude, longitude: location?.lng ?? defultCoordinate.longitude), rating: rating, priceLevel: priceLevel, userRatingTotal: userRatingTotal, detailText: detailText, placeId: placeId)
+    
+        for restaurant in restaurants {
             self.annotations.append(restaurant)
         }
         
@@ -123,7 +115,9 @@ class MainViewController: UIViewController {
                 print(error)
                 self?.showAlert(title: "Error searching nearby", message: error.localizedDescription)
             case .success(let places):
-                self?.places.append(contentsOf: places)
+                let restaurants = Restaurant.getRestuarants(places: places)
+                self?.restaurants.append(contentsOf: restaurants)
+                
             }
         }
     }
@@ -140,11 +134,11 @@ class MainViewController: UIViewController {
 // MARK: TABLE VIEW DELEGATE FUNCTIONS
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return places.count
+        return restaurants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let place = places[indexPath.row]
+        let place = restaurants[indexPath.row]
         guard let listCell = listTableView.dequeueReusableCell(withIdentifier: "listCell") as? ListTableViewCell else {
             fatalError("Error loading cell")
         }
@@ -181,7 +175,7 @@ extension MainViewController: CLLocationManagerDelegate {
           locationManager.startUpdatingLocation()
         case .denied, .notDetermined, .restricted:
           print("denied")
-          centerMap(coordinate: defultCoordinate)
+          centerMap(coordinate: Constants.defultCoordinate)
         default:
           break
         }
