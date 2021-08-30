@@ -20,6 +20,7 @@ class MainViewController: UIViewController {
     //MARK: VIEWS
     private var listTableView = ListTableView()
     private var mapView = MapView()
+    private var restaurantView: RestaurantView!
     
     //MARK: DATA:
     var restaurants = [Restaurant]() {
@@ -34,6 +35,7 @@ class MainViewController: UIViewController {
     
     //MARK: MAPKIT PROPERTIES:
     var annotations = [MKAnnotation]()
+    var lastSelectedAnnotationView: MKAnnotationView?
     
     //MARK: CORE LOCATION PROPERTIES
     private var locationManager = CLLocationManager()
@@ -51,15 +53,20 @@ class MainViewController: UIViewController {
 //        testEndpoint()
         setupViewsUI()
         setupCoreLocation()
-        
     }
     
     //MARK: UI FUNCTIONS
     private func setupViewsUI() {
         setupListTableView()
         setupMapView()
+        setupRestaurantView()
     }
     
+    private func setupRestaurantView() {
+        restaurantView = RestaurantView.instanceFromNib()
+        restaurantView.setupUI(width: contentView.frame.size.width * 0.75, height: contentView.frame.size.height * 0.175)
+        
+    }
     private func setupListTableView() {
         listTableView.setupUI(contentView: contentView)
         listTableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
@@ -75,11 +82,18 @@ class MainViewController: UIViewController {
         mapView.showsUserLocation = true
     }
     
-    
-    
+    private func didSelectedAnnotationView(selected: MKAnnotationView) {
+        if lastSelectedAnnotationView != nil {
+            lastSelectedAnnotationView!.image = Constants.unselectedPin
+            
+        }
+            selected.image = Constants.selectedPin
+            lastSelectedAnnotationView = selected
+        
+    }
     private func addAnnotations(restaurants: [Restaurant]) {
         mapView.removeAnnotations(self.annotations)
-    
+        
         for restaurant in restaurants {
             self.annotations.append(restaurant)
         }
@@ -142,6 +156,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let listCell = listTableView.dequeueReusableCell(withIdentifier: "listCell") as? ListTableViewCell else {
             fatalError("Error loading cell")
         }
+        
         print(place.name)
         return listCell
     }
@@ -156,10 +171,26 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 //MARK: MAPVIEW DELEGATE FUNCTIONS
 
 extension MainViewController: MKMapViewDelegate {
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print(view.annotation?.title)
+        guard let restaurantAnnotation = view.annotation as? Restaurant else {
+            return
+        }
+        
+        didSelectedAnnotationView(selected: view)
+        restaurantView.configure(with: restaurantAnnotation)
     }
-
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // 1
+        guard annotation is Restaurant else { return nil }
+        let annotationView = MKAnnotationView()
+        annotationView.image = Constants.unselectedPin
+        annotationView.detailCalloutAccessoryView = restaurantView
+        annotationView.canShowCallout = true
+        
+        return annotationView
+    }
 }
 
 //MARK: CORE LOCATION DELEGATE FUCTIONS

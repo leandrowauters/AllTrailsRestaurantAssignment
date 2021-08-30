@@ -17,7 +17,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="408" height="124"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NHU-Dj-okV">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NHU-Dj-okV">
                         <rect key="frame" x="15" y="15" width="94" height="94"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="NHU-Dj-okV" secondAttribute="height" multiplier="1:1" id="eBg-sI-RWV"/>
@@ -93,7 +93,6 @@
     </objects>
     <resources>
         <image name="heart" catalog="system" width="128" height="109"/>
-        <image name="placeholder" width="2048" height="1536"/>
         <image name="zeroStars" width="207" height="39"/>
     </resources>
 </document>

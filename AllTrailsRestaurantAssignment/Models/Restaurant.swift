@@ -19,6 +19,8 @@ class Restaurant: NSObject, MKAnnotation {
     var detailText: String?
     var placeId: String?
     
+    static let restaurantImage = UIImage(named: "placeholder")
+    
     init(name: String, coordinate: CLLocationCoordinate2D, rating: Int?, priceLevel: Int?, userRatingTotal: Int?, detailText: String, placeId: String?) {
         self.name = name
         self.coordinate = coordinate
@@ -47,7 +49,7 @@ class Restaurant: NSObject, MKAnnotation {
         }
     }
     
-    public func getDollarSigns(priceLevel: Int) -> String {
+    private func getDollarSigns() -> String {
         switch priceLevel {
         case 0:
             return "Free"
@@ -64,6 +66,9 @@ class Restaurant: NSObject, MKAnnotation {
         }
     }
     
+    public func getDetailText() -> String {
+        return "\(getDollarSigns()) - \(detailText ?? Constants.notAvailableText)"
+    }
     public func getUserRatingTotalText(userRatingTotal: Int) -> String {
         return "(\(userRatingTotal))"
     }
