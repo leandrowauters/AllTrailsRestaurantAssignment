@@ -14,4 +14,6 @@ struct Constants {
     static let defultCoordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
     static let selectedPin = UIImage(named: "pinSelected")
     static let unselectedPin = UIImage(named: "pinUnselected")
+    static let isfavoriteImage = UIImage(systemName: "heart.fill")
+    static let notFavoriteImage = UIImage(systemName: "heart")
 }

@@ -174,10 +174,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         guard let listCell = listTableView.dequeueReusableCell(withIdentifier: "listCell") as? ListTableViewCell else {
             fatalError("Error loading cell")
         }
+        listCell.restaurantCellDelegate = self
         listCell.restaurantImage.image = Restaurant.restaurantImage
         listCell.restaurantName.text = restaurant.name
         listCell.restaurantRatingImage.image = restaurant.getRatingImage()
         listCell.restaurantDetailLabel.text = restaurant.getDetailText()
+        listCell.isFavoriteButton.tag = indexPath.row
+        listCell.isFavoriteButton.setImage(restaurant.favoriteImage(), for: .normal)
+        
         return listCell
     }
     
@@ -259,4 +263,14 @@ extension MainViewController: UITextFieldDelegate {
         print(text)
         return true
     }
+}
+
+extension MainViewController: RestaurantCellDelegate {
+    func didPressFavorite(tag: Int) {
+        let restaurant = restaurants[tag]
+        restaurant.setFavorite()
+        listTableView.reloadData()
+    }
+    
+    
 }

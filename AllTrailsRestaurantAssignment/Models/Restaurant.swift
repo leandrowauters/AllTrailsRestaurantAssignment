@@ -73,11 +73,34 @@ class Restaurant: NSObject, MKAnnotation {
         return "(\(userRatingTotal ?? 0))"
     }
     
-    public func isFavorite(placeId: String) -> Bool {
+    public func favoriteImage() -> UIImage? {
         //TODO: ADD USERDEFULT FUNC
-        return false
+        guard let placeId = placeId else {
+            return Constants.notFavoriteImage
+        }
+        
+        let isFavorite = UserDefaultsHelper.defaults.bool(forKey: placeId)
+        if isFavorite {
+            return Constants.isfavoriteImage
+        } else {
+            return Constants.notFavoriteImage
+        }
+        
     }
     
+    public func setFavorite() {
+        guard let placeId = placeId else {
+            return
+        }
+        if UserDefaultsHelper.defaults.bool(forKey: placeId) {
+            UserDefaultsHelper.defaults.removeObject(forKey: placeId)
+            print("Remove favorite: \(name)")
+        } else {
+            UserDefaultsHelper.defaults.set(true, forKey: placeId)
+            print("Restaurant: \(name) was favorited")
+        }
+
+    }
     static func getRestuarants(places: [ResultWrapper]) -> [Restaurant] {
         var restaurants = [Restaurant]()
         
@@ -90,7 +113,6 @@ class Restaurant: NSObject, MKAnnotation {
             let detailText = (place.vicinity ?? place.formattedAddress) ?? Constants.notAvailableText
             let placeId = place.placeID
             let restaurant = Restaurant(name: name, coordinate: CLLocationCoordinate2D(latitude: location?.lat ?? Constants.defultCoordinate.latitude, longitude: location?.lng ?? Constants.defultCoordinate.longitude), rating: rating, priceLevel: priceLevel, userRatingTotal: userRatingTotal, detailText: detailText, placeId: placeId)
-            
             restaurants.append(restaurant)
         }
         

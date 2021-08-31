@@ -7,9 +7,13 @@
 
 import UIKit
 
+protocol RestaurantCellDelegate: AnyObject {
+    func didPressFavorite(tag: Int)
+}
+
 class ListTableViewCell: UITableViewCell {
 
-    
+    weak var restaurantCellDelegate: RestaurantCellDelegate?
     
     @IBOutlet weak var restaurantName: UILabel!
 
@@ -21,7 +25,12 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var restaurantDetailLabel: UILabel!
     
-    @IBOutlet weak var isFavoriteImage: UIImageView!
+    @IBOutlet weak var isFavoriteButton: UIButton!
+    
+    @IBAction func didPressFavoriteButton(_ sender: UIButton) {
+        print("FAVORITE PRESSED\(sender.tag)")
+        restaurantCellDelegate?.didPressFavorite(tag: sender.tag)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

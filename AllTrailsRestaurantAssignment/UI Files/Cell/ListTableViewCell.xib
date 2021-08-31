@@ -42,6 +42,9 @@
                                             <constraint firstAttribute="width" constant="20" id="lBb-Yb-KTk"/>
                                         </constraints>
                                         <state key="normal" image="heart" catalog="system"/>
+                                        <connections>
+                                            <action selector="didPressFavoriteButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vJi-sS-Jwg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -84,6 +87,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="isFavoriteButton" destination="VNQ-bI-UjR" id="a2V-a5-gf6"/>
                 <outlet property="restaurantDetailLabel" destination="FTc-jG-bWo" id="S0n-KZ-ouf"/>
                 <outlet property="restaurantImage" destination="NHU-Dj-okV" id="vtB-bV-HK6"/>
                 <outlet property="restaurantName" destination="B7d-WJ-Ghp" id="fqq-i3-DLP"/>
