@@ -21,11 +21,11 @@
                         <constraint firstAttribute="width" secondItem="JNc-wY-mdF" secondAttribute="height" multiplier="1:1" id="q2Q-4Y-6Ah"/>
                     </constraints>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8wa-82-RRz">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="8wa-82-RRz">
                     <rect key="frame" x="136" y="59" width="244" height="111"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dwy-iS-FoS">
-                            <rect key="frame" x="0.0" y="0.0" width="244" height="17"/>
+                            <rect key="frame" x="0.0" y="0.0" width="35.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -45,7 +45,7 @@
                             </subviews>
                         </stackView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="uhL-ba-M92">
-                            <rect key="frame" x="0.0" y="94" width="244" height="17"/>
+                            <rect key="frame" x="0.0" y="94" width="35.5" height="17"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -65,7 +65,6 @@
                 <constraint firstItem="8wa-82-RRz" firstAttribute="leading" secondItem="JNc-wY-mdF" secondAttribute="trailing" constant="5" id="P67-vh-2bH"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="8wa-82-RRz" secondAttribute="bottom" constant="15" id="Xrg-tJ-Z4m"/>
                 <constraint firstItem="JNc-wY-mdF" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ish-dK-cji"/>
-                <constraint firstItem="JNc-wY-mdF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="tJr-AU-yfE"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="8wa-82-RRz" secondAttribute="trailing" constant="10" id="uHk-Jj-DRB"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="JNc-wY-mdF" secondAttribute="bottom" constant="10" id="yR3-7y-V92"/>
             </constraints>

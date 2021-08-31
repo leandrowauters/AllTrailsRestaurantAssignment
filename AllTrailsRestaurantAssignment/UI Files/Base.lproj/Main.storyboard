@@ -67,6 +67,9 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="Map" image="mappin.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="contentViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFl-Tf-bNY"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>

@@ -32,7 +32,7 @@ class Restaurant: NSObject, MKAnnotation {
     }
 
     
-    public func getRatingImage(rating: Int) -> UIImage? {
+    public func getRatingImage() -> UIImage? {
         switch rating {
         case 1:
             return UIImage(named: "oneStars")
@@ -69,8 +69,8 @@ class Restaurant: NSObject, MKAnnotation {
     public func getDetailText() -> String {
         return "\(getDollarSigns()) - \(detailText ?? Constants.notAvailableText)"
     }
-    public func getUserRatingTotalText(userRatingTotal: Int) -> String {
-        return "(\(userRatingTotal))"
+    public func getUserRatingTotalText() -> String {
+        return "(\(userRatingTotal ?? 0))"
     }
     
     public func isFavorite(placeId: String) -> Bool {

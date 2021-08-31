@@ -24,8 +24,8 @@ class RestaurantView: UIView {
     func configure(with restaurant: Restaurant) {
         placeholderImage.image = Restaurant.restaurantImage
         restaurantName.text = restaurant.name
-        restaurantRatingImage.image = restaurant.getRatingImage(rating: restaurant.rating ?? 0)
-        userRatingTotalLabel.text = restaurant.getUserRatingTotalText(userRatingTotal: restaurant.userRatingTotal ?? 0)
+        restaurantRatingImage.image = restaurant.getRatingImage()
+        userRatingTotalLabel.text = restaurant.getUserRatingTotalText()
         restaurantAddressLabel.text = restaurant.getDetailText()
     }
     

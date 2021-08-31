@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
     
     //MARK: CORE LOCATION PROPERTIES
     private var locationManager = CLLocationManager()
+    private var didUpdateLocation = false
     private var userCoordinate: CLLocationCoordinate2D? {
         didSet {
             searchNearby()
@@ -50,7 +51,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment to test endpoints
-//        testEndpoint()
         setupViewsUI()
         setupCoreLocation()
     }
@@ -62,6 +62,9 @@ class MainViewController: UIViewController {
         setupRestaurantView()
     }
     
+    private func setupTextField() {
+        searchTextField.delegate = self
+    }
     private func setupRestaurantView() {
         restaurantView = RestaurantView.instanceFromNib()
         restaurantView.setupUI(width: contentView.frame.size.width * 0.75, height: contentView.frame.size.height * 0.175)
@@ -104,8 +107,10 @@ class MainViewController: UIViewController {
     
     //MARK: CORE LOCATION FUNCTIONS
     private func setupCoreLocation() {
-        requestLocationPersmissions()
         locationManager.delegate = self
+        requestLocationPersmissions()
+        
+        
     }
     
     private func requestLocationPersmissions() {
@@ -116,13 +121,24 @@ class MainViewController: UIViewController {
         let coordinateRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: Constants.regionRadius, longitudinalMeters: Constants.regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         //MARK: THIS SHOULD BE CHECK!
-        locationManager.stopUpdatingLocation()
+        
+    }
+    
+    private func toggleContentViews() {
+        mapView.isHidden.toggle()
+        listTableView.isHidden.toggle()
+    }
+    
+    @IBAction func contentViewButtonPressed(_ sender: Any) {
+        toggleContentViews()
     }
     
     func searchNearby() {
+        
         guard let userCoordinate = self.userCoordinate else {
             return
         }
+        
         NetworkClient.fetchPlacesData(location: userCoordinate.urlQueryItemString(), seachType: .Nearby, textSearch: nil) { [weak self] result in
             switch result {
             case .failure(let error):
@@ -131,10 +147,10 @@ class MainViewController: UIViewController {
             case .success(let places):
                 let restaurants = Restaurant.getRestuarants(places: places)
                 self?.restaurants.append(contentsOf: restaurants)
-                
             }
         }
     }
+    
     func testEndpoint() {
         let location = "40.7484,-73.9857"
         let endpoint = NetworkClient.endpoint(searchType: .Text, location: location, textSearch: "bakery")
@@ -152,12 +168,14 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let place = restaurants[indexPath.row]
+        let restaurant = restaurants[indexPath.row]
         guard let listCell = listTableView.dequeueReusableCell(withIdentifier: "listCell") as? ListTableViewCell else {
             fatalError("Error loading cell")
         }
-        
-        print(place.name)
+        listCell.restaurantImage.image = Restaurant.restaurantImage
+        listCell.restaurantName.text = restaurant.name
+        listCell.restaurantRatingImage.image = restaurant.getRatingImage()
+        listCell.restaurantDetailLabel.text = restaurant.getDetailText()
         return listCell
     }
     
@@ -204,7 +222,7 @@ extension MainViewController: CLLocationManagerDelegate {
         case .authorizedWhenInUse:
           print("authorizedWhenInUse")
           locationManager.startUpdatingLocation()
-        case .denied, .notDetermined, .restricted:
+        case .denied:
           print("denied")
           centerMap(coordinate: Constants.defultCoordinate)
         default:
@@ -214,6 +232,14 @@ extension MainViewController: CLLocationManagerDelegate {
     }
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else {return}
+//        centerMap(coordinate: currentLocation.coordinate)
+        if userCoordinate == nil {
         userCoordinate = currentLocation.coordinate
+            locationManager.stopUpdatingLocation()
+        }
     }
+}
+
+extension MainViewController: UITextFieldDelegate {
+    
 }

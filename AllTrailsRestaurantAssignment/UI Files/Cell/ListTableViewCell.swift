@@ -9,6 +9,20 @@ import UIKit
 
 class ListTableViewCell: UITableViewCell {
 
+    
+    
+    @IBOutlet weak var restaurantName: UILabel!
+
+    @IBOutlet weak var restaurantImage: UIImageView!
+    
+    @IBOutlet weak var restaurantRatingImage: UIImageView!
+    
+    @IBOutlet weak var userTotalRatingLabel: UILabel!
+    
+    @IBOutlet weak var restaurantDetailLabel: UILabel!
+    
+    @IBOutlet weak var isFavoriteImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +33,6 @@ class ListTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     
 }
