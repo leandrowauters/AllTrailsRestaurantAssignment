@@ -30,5 +30,6 @@ struct Constants {
     static let imageInsets = CGFloat(15)
     static let listImage = UIImage(systemName: "list.bullet")
     static let mapImape = UIImage(systemName: "map")
+    static let searchNearbyImage = UIImage(systemName: "location")
     
 }

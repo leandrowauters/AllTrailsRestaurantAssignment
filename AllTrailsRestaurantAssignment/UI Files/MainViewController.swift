@@ -66,7 +66,7 @@ class MainViewController: UIViewController {
     }
     
     private func setupSearchNearByButton() {
-        searchNearbyButton.setAsContentButton()
+        searchNearbyButton.setAsSearchNearbyButton()
     }
     private func setupContentButtonUI() {
         
@@ -158,6 +158,11 @@ class MainViewController: UIViewController {
     @IBAction func contentViewButtonPressed(_ sender: Any) {
         toggleContentViews()
     }
+    
+    @IBAction func didPressSearchNearby(_ sender: Any) {
+        searchReastaurant(searchType: .Nearby, text: nil)
+    }
+    
     
     func searchReastaurant(searchType: NetworkClient.SearchType, text: String?) {
         
@@ -273,10 +278,12 @@ extension MainViewController: UITextFieldDelegate {
         }
         if text == "" {
             print("NO SEARCH")
+            textField.text = ""
             textField.endEditing(true)
             
         } else {
             searchReastaurant(searchType: .Text, text: text)
+            textField.text = ""
             textField.endEditing(true)
         }
         
