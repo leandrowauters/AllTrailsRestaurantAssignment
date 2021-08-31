@@ -20,6 +20,7 @@
 		D5932A0E26DDE0E000EF8638 /* UserDefaultsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5932A0D26DDE0E000EF8638 /* UserDefaultsHelper.swift */; };
 		D5932A1026DDEE2300EF8638 /* Extension+UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5932A0F26DDEE2300EF8638 /* Extension+UILabel.swift */; };
 		D5932A1226DDF83F00EF8638 /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5932A1126DDF83F00EF8638 /* Extension+UIButton.swift */; };
+		D5932A1426DE031500EF8638 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5932A1326DE031500EF8638 /* Extension+UIView.swift */; };
 		D5D9BA4726D9BA07006E9C2E /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4626D9BA07006E9C2E /* NetworkClient.swift */; };
 		D5D9BA4C26D9C2DA006E9C2E /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */; };
 		D5D9BA5026D9CAB1006E9C2E /* Extension+CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */; };
@@ -71,6 +72,7 @@
 		D5932A0D26DDE0E000EF8638 /* UserDefaultsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsHelper.swift; sourceTree = "<group>"; };
 		D5932A0F26DDEE2300EF8638 /* Extension+UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UILabel.swift"; sourceTree = "<group>"; };
 		D5932A1126DDF83F00EF8638 /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		D5932A1326DE031500EF8638 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		D5D9BA4626D9BA07006E9C2E /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
 		D5D9BA4B26D9C2DA006E9C2E /* NetworkKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
 		D5D9BA4F26D9CAB1006E9C2E /* Extension+CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+CLLocation.swift"; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				D5E7F4D126DB55F4000DDEAB /* Extension+Other.swift */,
 				D5932A0F26DDEE2300EF8638 /* Extension+UILabel.swift */,
 				D5932A1126DDF83F00EF8638 /* Extension+UIButton.swift */,
+				D5932A1326DE031500EF8638 /* Extension+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				D5932A0E26DDE0E000EF8638 /* UserDefaultsHelper.swift in Sources */,
 				D50EDD5226D9A8C1007ACAC9 /* Places.swift in Sources */,
 				D5E7F4D426DB58EA000DDEAB /* Restaurant.swift in Sources */,
+				D5932A1426DE031500EF8638 /* Extension+UIView.swift in Sources */,
 				D5E7F4D226DB55F4000DDEAB /* Extension+Other.swift in Sources */,
 				D5D9BA4726D9BA07006E9C2E /* NetworkClient.swift in Sources */,
 				D5E7F4D026DB5538000DDEAB /* Constants.swift in Sources */,

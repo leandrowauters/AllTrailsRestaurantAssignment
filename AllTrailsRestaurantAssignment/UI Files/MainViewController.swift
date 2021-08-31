@@ -12,6 +12,9 @@ class MainViewController: UIViewController {
 
     
     //MARK: OUTLETS
+    
+    
+    @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchNearbyButton: UIButton!
     @IBOutlet weak var contentView: UIView!
@@ -59,6 +62,7 @@ class MainViewController: UIViewController {
     //MARK: UI FUNCTIONS
     private func setupUI() {
         topView.backgroundColor = Constants.secondaryColor
+        searchView.setAsSearchView()
         contentButton.setAsContentButton()
         setupViewsUI()
         setupContentButtonUI()

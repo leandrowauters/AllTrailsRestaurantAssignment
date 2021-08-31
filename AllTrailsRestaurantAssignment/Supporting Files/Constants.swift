@@ -17,6 +17,7 @@ struct Constants {
     static let isfavoriteImage = UIImage(systemName: "heart.fill")
     static let notFavoriteImage = UIImage(systemName: "heart")
     
+    //MARK: UI PROPERTIES
     // COLOR
     static let primaryColor = UIColor.systemBackground
     static let secondaryColor = UIColor.secondarySystemBackground
@@ -31,5 +32,9 @@ struct Constants {
     static let listImage = UIImage(systemName: "list.bullet")
     static let mapImape = UIImage(systemName: "map")
     static let searchNearbyImage = UIImage(systemName: "location")
+    
+    static let cornernRadius = CGFloat(5)
+    static let borderWidth = CGFloat(0.5)
+    static let borderColor = UIColor.darkGray.cgColor
     
 }
