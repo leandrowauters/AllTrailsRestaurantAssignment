@@ -2,7 +2,7 @@
 ###### By Leandro Wauters
 
 ## Instructions
-In order for the app to work please replace *API KEY HERE* on *NetworkManager/NetworkKeys* with the proper key 
+In order for the app to work please replace *API KEY HERE* in *NetworkManager/NetworkKeys* with the proper key 
 
 ## Added Features
 
