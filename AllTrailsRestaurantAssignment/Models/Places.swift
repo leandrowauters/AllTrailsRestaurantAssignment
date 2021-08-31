@@ -17,6 +17,7 @@ struct ResultWrapper: Codable {
     let businessStatus: String?
     let geometry: Geometry?
     let icon: String?
+    let formattedAddress: String?
     let iconBackgroundColor: String?
     let iconMaskBaseURI: String?
     let name: String?
@@ -33,6 +34,7 @@ struct ResultWrapper: Codable {
 
     enum CodingKeys: String, CodingKey {
         case businessStatus = "business_status"
+        case formattedAddress = "formatted_address"
         case geometry, icon
         case iconBackgroundColor = "icon_background_color"
         case iconMaskBaseURI = "icon_mask_base_uri"

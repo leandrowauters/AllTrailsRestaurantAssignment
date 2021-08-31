@@ -87,9 +87,8 @@ class Restaurant: NSObject, MKAnnotation {
             let rating = Int(place.rating ?? 0.0)
             let priceLevel = place.priceLevel
             let userRatingTotal = place.userRatingsTotal ?? 0
-            let detailText = place.vicinity ?? Constants.notAvailableText
+            let detailText = (place.vicinity ?? place.formattedAddress) ?? Constants.notAvailableText
             let placeId = place.placeID
-            
             let restaurant = Restaurant(name: name, coordinate: CLLocationCoordinate2D(latitude: location?.lat ?? Constants.defultCoordinate.latitude, longitude: location?.lng ?? Constants.defultCoordinate.longitude), rating: rating, priceLevel: priceLevel, userRatingTotal: userRatingTotal, detailText: detailText, placeId: placeId)
             
             restaurants.append(restaurant)

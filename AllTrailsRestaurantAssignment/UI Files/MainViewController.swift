@@ -39,10 +39,9 @@ class MainViewController: UIViewController {
     
     //MARK: CORE LOCATION PROPERTIES
     private var locationManager = CLLocationManager()
-    private var didUpdateLocation = false
     private var userCoordinate: CLLocationCoordinate2D? {
         didSet {
-            searchNearby()
+            searchReastaurant(searchType: .Nearby, text: nil)
         }
     }
     //Default location: NYC
@@ -50,7 +49,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Uncomment to test endpoints
+        setupTextField()
         setupViewsUI()
         setupCoreLocation()
     }
@@ -95,8 +94,9 @@ class MainViewController: UIViewController {
         
     }
     private func addAnnotations(restaurants: [Restaurant]) {
-        mapView.removeAnnotations(self.annotations)
         
+        mapView.removeAnnotations(self.annotations)
+        self.annotations.removeAll()
         for restaurant in restaurants {
             self.annotations.append(restaurant)
         }
@@ -133,23 +133,25 @@ class MainViewController: UIViewController {
         toggleContentViews()
     }
     
-    func searchNearby() {
+    func searchReastaurant(searchType: NetworkClient.SearchType, text: String?) {
         
         guard let userCoordinate = self.userCoordinate else {
             return
         }
         
-        NetworkClient.fetchPlacesData(location: userCoordinate.urlQueryItemString(), seachType: .Nearby, textSearch: nil) { [weak self] result in
+        NetworkClient.fetchPlacesData(location: userCoordinate.urlQueryItemString(), seachType: searchType, textSearch: text) { [weak self] result in
             switch result {
             case .failure(let error):
                 print(error)
                 self?.showAlert(title: "Error searching nearby", message: error.localizedDescription)
             case .success(let places):
                 let restaurants = Restaurant.getRestuarants(places: places)
-                self?.restaurants.append(contentsOf: restaurants)
+                self?.restaurants = restaurants
             }
         }
     }
+    
+
     
     func testEndpoint() {
         let location = "40.7484,-73.9857"
@@ -241,5 +243,20 @@ extension MainViewController: CLLocationManagerDelegate {
 }
 
 extension MainViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let text = textField.text else {
+            return true
+        }
+        if text == "" {
+            print("NO SEARCH")
+            textField.endEditing(true)
+            
+        } else {
+            searchReastaurant(searchType: .Text, text: text)
+            textField.endEditing(true)
+        }
+        
+        print(text)
+        return true
+    }
 }
