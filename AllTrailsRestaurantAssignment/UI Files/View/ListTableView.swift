@@ -14,6 +14,8 @@ class ListTableView: UITableView {
     public func setupUI(contentView: UIView) {
         contentView.addSubview(self)
         contentView.sendSubviewToBack(self)
+        backgroundColor = Constants.secondaryColor
+        separatorStyle = .none
         self.translatesAutoresizingMaskIntoConstraints = false
             self.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
             self.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true

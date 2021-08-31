@@ -29,17 +29,18 @@ class RestaurantView: UIView {
         restaurantAddressLabel.text = restaurant.getDetailText()
     }
     
-    func setupLabel(labels: [UILabel]) {
-        for label in labels {
-            label.sizeToFit()
-            label.numberOfLines = 1
-            label.lineBreakMode = .byWordWrapping
-        }
+
+    private func setupTextLabel() {
+        restaurantName.setTitleText()
+        userRatingTotalLabel.setDetailText()
+        restaurantAddressLabel.setDetailText()
     }
-    
     func setupUI(width: CGFloat, height: CGFloat) {
+        setupTextLabel()
+        backgroundColor = Constants.primaryColor
 //        setupLabel(labels: [restaurantName, restaurantAddressLabel])
         translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalToConstant: width),
             heightAnchor.constraint(equalToConstant: height)

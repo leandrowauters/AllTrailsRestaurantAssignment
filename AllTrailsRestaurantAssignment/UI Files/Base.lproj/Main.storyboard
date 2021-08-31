@@ -60,12 +60,14 @@
                                 <rect key="frame" x="0.0" y="192.5" width="414" height="703.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fMF-hW-BvB">
-                                        <rect key="frame" x="149.5" y="583.5" width="115" height="50"/>
+                                        <rect key="frame" x="134.5" y="583.5" width="145" height="50"/>
                                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="D2f-L7-tKn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <inset key="titleEdgeInsets" minX="16" minY="0.0" maxX="-15" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="-2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="Map" image="mappin.circle" catalog="system"/>
                                         <connections>
                                             <action selector="contentViewButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JFl-Tf-bNY"/>
@@ -74,7 +76,7 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <constraints>
-                                    <constraint firstItem="fMF-hW-BvB" firstAttribute="width" secondItem="WcW-af-E8Y" secondAttribute="width" multiplier="0.277778" id="63L-nH-ZG7"/>
+                                    <constraint firstItem="fMF-hW-BvB" firstAttribute="width" secondItem="WcW-af-E8Y" secondAttribute="width" multiplier="0.35" id="63L-nH-ZG7"/>
                                     <constraint firstAttribute="bottom" secondItem="fMF-hW-BvB" secondAttribute="bottom" constant="70" id="Rsy-Ji-duV"/>
                                 </constraints>
                             </view>
@@ -96,8 +98,9 @@
                     <connections>
                         <outlet property="contentButton" destination="fMF-hW-BvB" id="3ad-lf-Hbg"/>
                         <outlet property="contentView" destination="WcW-af-E8Y" id="aUN-F0-4x5"/>
-                        <outlet property="filterButton" destination="2qd-tC-Jyq" id="Pvl-Kj-BAt"/>
+                        <outlet property="searchNearbyButton" destination="2qd-tC-Jyq" id="Pvl-Kj-BAt"/>
                         <outlet property="searchTextField" destination="6Hc-e6-ZfF" id="VJp-hh-oF1"/>
+                        <outlet property="topView" destination="HyV-iZ-Eds" id="TfO-1V-uLR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -27,6 +27,7 @@ class ListTableViewCell: UITableViewCell {
     
     @IBOutlet weak var isFavoriteButton: UIButton!
     
+    @IBOutlet weak var infoView: UIView!
     @IBAction func didPressFavoriteButton(_ sender: UIButton) {
         print("FAVORITE PRESSED\(sender.tag)")
         restaurantCellDelegate?.didPressFavorite(tag: sender.tag)
@@ -36,7 +37,25 @@ class ListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
+    private func setupUI() {
+        restaurantName.setTitleText()
+        restaurantDetailLabel.setDetailText()
+        userTotalRatingLabel.setDetailText()
+        infoView.backgroundColor = Constants.primaryColor
+        backgroundColor = Constants.secondaryColor
+        isFavoriteButton.tintColor = Constants.tertiaryColor
+    }
+    func configureCell(with restaurant: Restaurant, tag: Int) {
+        setupUI()
+        restaurantImage.image = Restaurant.restaurantImage
+        restaurantName.text = restaurant.name
+        restaurantRatingImage.image = restaurant.getRatingImage()
+        restaurantDetailLabel.text = restaurant.getDetailText()
+        userTotalRatingLabel.text = restaurant.getUserRatingTotalText()
+        isFavoriteButton.tag = tag
+        isFavoriteButton.setImage(restaurant.favoriteImage(), for: .normal)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

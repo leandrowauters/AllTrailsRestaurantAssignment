@@ -12,7 +12,8 @@ class MainViewController: UIViewController {
 
     
     //MARK: OUTLETS
-    @IBOutlet weak var filterButton: UIButton!
+    @IBOutlet weak var topView: UIView!
+    @IBOutlet weak var searchNearbyButton: UIButton!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var contentButton: UIButton!
     @IBOutlet weak var searchTextField: UITextField!
@@ -45,16 +46,40 @@ class MainViewController: UIViewController {
         }
     }
     //Default location: NYC
-
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextField()
-        setupViewsUI()
+        setupUI()
         setupCoreLocation()
     }
     
     //MARK: UI FUNCTIONS
+    private func setupUI() {
+        topView.backgroundColor = Constants.secondaryColor
+        contentButton.setAsContentButton()
+        setupViewsUI()
+        setupContentButtonUI()
+        setupSearchNearByButton()
+    }
+    
+    private func setupSearchNearByButton() {
+        searchNearbyButton.setAsContentButton()
+    }
+    private func setupContentButtonUI() {
+        
+        if !mapView.isHidden {
+            //MAP VIEW SHOWING
+            contentButton.setTitle("Map", for: .normal)
+            contentButton.setImage(Constants.mapImape, for: .normal)
+        } else {
+            //LIST VIEW SHOWING
+            contentButton.setTitle("List", for: .normal)
+            contentButton.setImage(Constants.listImage, for: .normal)
+        }
+    }
     private func setupViewsUI() {
         setupListTableView()
         setupMapView()
@@ -127,6 +152,7 @@ class MainViewController: UIViewController {
     private func toggleContentViews() {
         mapView.isHidden.toggle()
         listTableView.isHidden.toggle()
+        setupContentButtonUI()
     }
     
     @IBAction func contentViewButtonPressed(_ sender: Any) {
@@ -175,13 +201,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Error loading cell")
         }
         listCell.restaurantCellDelegate = self
-        listCell.restaurantImage.image = Restaurant.restaurantImage
-        listCell.restaurantName.text = restaurant.name
-        listCell.restaurantRatingImage.image = restaurant.getRatingImage()
-        listCell.restaurantDetailLabel.text = restaurant.getDetailText()
-        listCell.isFavoriteButton.tag = indexPath.row
-        listCell.isFavoriteButton.setImage(restaurant.favoriteImage(), for: .normal)
-        
+        listCell.configureCell(with: restaurant, tag: indexPath.row)
         return listCell
     }
     
@@ -271,6 +291,4 @@ extension MainViewController: RestaurantCellDelegate {
         restaurant.setFavorite()
         listTableView.reloadData()
     }
-    
-    
 }
