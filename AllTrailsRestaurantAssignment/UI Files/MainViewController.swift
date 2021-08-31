@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     //MARK: OUTLETS
     
     
+    @IBOutlet weak var activityIndicatiorView: UIView!
     @IBOutlet weak var searchView: UIView!
     @IBOutlet weak var topView: UIView!
     @IBOutlet weak var searchNearbyButton: UIButton!
@@ -33,6 +34,7 @@ class MainViewController: UIViewController {
             DispatchQueue.main.async {
                 self.listTableView.reloadData()
                 self.addAnnotations(restaurants: self.restaurants)
+                self.hideActivityIndicatorView()
             }
         }
     }
@@ -103,6 +105,7 @@ class MainViewController: UIViewController {
         listTableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: "listCell")
         listTableView.delegate = self
         listTableView.dataSource = self
+        listTableView.allowsSelection = false
         listTableView.isHidden = true
     }
 
@@ -287,6 +290,7 @@ extension MainViewController: UITextFieldDelegate {
             textField.endEditing(true)
             
         } else {
+            showActivityIndicatorView()
             searchReastaurant(searchType: .Text, text: text)
             textField.text = ""
             textField.endEditing(true)
@@ -304,3 +308,16 @@ extension MainViewController: RestaurantCellDelegate {
         listTableView.reloadData()
     }
 }
+
+extension MainViewController {
+    private func showActivityIndicatorView() {
+        activityIndicatiorView.isHidden = false
+    }
+    
+    private func hideActivityIndicatorView() {
+        if !activityIndicatiorView.isHidden {
+            activityIndicatiorView.isHidden = true
+        }
+    }
+}
+
