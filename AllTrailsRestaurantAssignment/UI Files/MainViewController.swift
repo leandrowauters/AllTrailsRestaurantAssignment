@@ -76,12 +76,12 @@ class MainViewController: UIViewController {
         
         if !mapView.isHidden {
             //MAP VIEW SHOWING
-            contentButton.setTitle("Map", for: .normal)
-            contentButton.setImage(Constants.mapImape, for: .normal)
-        } else {
-            //LIST VIEW SHOWING
             contentButton.setTitle("List", for: .normal)
             contentButton.setImage(Constants.listImage, for: .normal)
+        } else {
+            //LIST VIEW SHOWING
+            contentButton.setTitle("Map", for: .normal)
+            contentButton.setImage(Constants.mapImape, for: .normal)
         }
     }
     private func setupViewsUI() {
@@ -110,6 +110,7 @@ class MainViewController: UIViewController {
     private func setupMapView() {
         mapView.setupUI(contentView: contentView)
         mapView.delegate = self
+        mapView.isRotateEnabled = false
         mapView.showsUserLocation = true
     }
     

@@ -74,7 +74,7 @@ class Restaurant: NSObject, MKAnnotation {
     }
     
     public func favoriteImage() -> UIImage? {
-        //TODO: ADD USERDEFULT FUNC
+        
         guard let placeId = placeId else {
             return Constants.notFavoriteImage
         }
@@ -94,10 +94,8 @@ class Restaurant: NSObject, MKAnnotation {
         }
         if UserDefaultsHelper.defaults.bool(forKey: placeId) {
             UserDefaultsHelper.defaults.removeObject(forKey: placeId)
-            print("Remove favorite: \(name)")
         } else {
             UserDefaultsHelper.defaults.set(true, forKey: placeId)
-            print("Restaurant: \(name) was favorited")
         }
 
     }
